@@ -2,28 +2,46 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gold price</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #4B7447; /* ??? ?????? */
+      color: #fff; /* ??? ???? */
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    #result {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ffd700; /* ????? */
+      border: 3px solid #ffd700; /* ???? ????? */
+      padding: 10px 20px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-  <h2>price form gohar taban: </h2>
+  <h2>price form gohar taban:</h2>
   <div id="result">loading...</div>
 
   <script>
-    
     const targetUrl = 'https://tabangohar.com';
 
     fetch(targetUrl)
       .then(response => response.text())
       .then(htmlString => {
-    
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlString, 'text/html');
-
-     
         const targetDiv = doc.querySelector('#gram18_price_now');
-
         if (targetDiv) {
-          
           document.getElementById('result').innerHTML = targetDiv.innerHTML;
         } else {
           document.getElementById('result').innerText = 'not found';
