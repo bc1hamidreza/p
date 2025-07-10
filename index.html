@@ -1,36 +1,61 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gold price</title>
+  <title>Gold Price</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-color: #4B7447; /* ??? ?????? */
-      color: #fff; /* ??? ???? */
+      background: linear-gradient(to bottom, #4B7447, #2d4a2a);
+      color: #fff;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
 
     #result {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: bold;
-      color: #ffd700; /* ????? */
-      border: 3px solid #ffd700; /* ???? ????? */
-      padding: 10px 20px;
-      border-radius: 12px;
+      color: #ffd700;
+      border: 3px solid #ffd700;
+      padding: 15px 25px;
+      border-radius: 20px;
       display: inline-block;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+      margin-top: 20px;
+      min-width: 100px;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border: 3px solid #ffd700;
+      border-radius: 50%;
+      border-top: 3px solid transparent;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <h2>price form gohar taban:</h2>
-  <div id="result">loading...</div>
+  <h2>Price from Gohar Taban</h2>
+  <div id="result">
+    <span class="loader"></span>
+  </div>
 
   <script>
     const targetUrl = 'https://tabangohar.com';
@@ -41,14 +66,15 @@
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlString, 'text/html');
         const targetDiv = doc.querySelector('#gram18_price_now');
+        const result = document.getElementById('result');
         if (targetDiv) {
-          document.getElementById('result').innerHTML = targetDiv.innerHTML;
+          result.innerHTML = targetDiv.innerHTML;
         } else {
-          document.getElementById('result').innerText = 'not found';
+          result.innerText = 'Not found';
         }
       })
       .catch(err => {
-        document.getElementById('result').innerText = 'error in receive data';
+        document.getElementById('result').innerText = 'Error fetching data';
         console.error(err);
       });
   </script>
