@@ -1,0 +1,225 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#0f172a;
+    font-family:tahoma;
+    color:white;
+
+}
+
+.container{
+
+    width:95%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px;
+
+}
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+
+}
+
+h1{
+
+    font-size:34px;
+    font-weight:bold;
+    color:#ffffff;
+
+}
+
+#lastUpdate{
+
+    color:#cbd5e1;
+    margin-top:10px;
+
+}
+
+#refreshBtn{
+
+    padding:12px 30px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+#refreshBtn:hover{
+
+    background:#1d4ed8;
+
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:12px;
+    background:#1e293b;
+    box-shadow:0 0 20px rgba(0,0,0,.35);
+
+}
+
+thead{
+
+    background:#334155;
+
+}
+
+th{
+
+    padding:18px;
+    font-size:17px;
+
+}
+
+td{
+
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #334155;
+    font-size:18px;
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:#293548;
+
+}
+
+.footer{
+
+    margin-top:25px;
+    text-align:center;
+    color:#94a3b8;
+
+}
+
+.online{
+
+    color:#22c55e;
+    font-weight:bold;
+
+}
+
+.offline{
+
+    color:#ef4444;
+    font-weight:bold;
+
+}
+
+.wait{
+
+    color:#facc15;
+    font-weight:bold;
+
+}
+
+.up{
+
+    color:#22c55e;
+    font-weight:bold;
+
+}
+
+.down{
+
+    color:#ef4444;
+    font-weight:bold;
+
+}
+
+.same{
+
+    color:white;
+
+}
+
+.price{
+
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+.flash{
+
+    animation:flash .6s;
+
+}
+
+@keyframes flash{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@media(max-width:900px){
+
+table{
+
+display:block;
+overflow-x:auto;
+
+}
+
+h1{
+
+font-size:26px;
+
+}
+
+#refreshBtn{
+
+margin-top:20px;
+width:100%;
+
+}
+
+header{
+
+display:block;
+
+}
+
+}
